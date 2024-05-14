@@ -1,0 +1,102 @@
+version: 2
+
+sources:
+  - name: staging
+    database: norse-study-420315
+     # For postgres:
+      #database: production
+    schema: dbt_fproject_from_dbt
+
+      # loaded_at_field: record_loaded_at
+    tables:
+      - name: daily_symptomes
+      - name: weekly_symptomes
+
+
+models:
+    - name: daily_symptomes
+      description: >
+        Daily symptomes staging table. 
+      columns:
+          - name: country_region_code
+            description: country region code for covid infected
+            tests:
+                - unique:
+                    severity: warn
+                - not_null:
+                    severity: warn
+          - name: country_region
+            description: country region by region code for covid infected
+            tests:
+                - unique:
+                    severity: warn
+                - not_null:
+                    severity: warn
+          - name: symptom_infection
+            description: An infection is the invasion of tissues by pathogens, their multiplication, and the reaction of host tissues to the infectious agent and the toxins they produce.
+            tests:
+                - not_null:
+                    severity: warn
+          - name: symptom_itch
+            description: (also known as pruritus) is a sensation that causes a strong desire or reflex to scratch.
+            tests:
+                - not_null:
+                    severity: warn
+          - name: symptom_pain
+            description: Pain is a distressing feeling often caused by intense or damaging stimuli.
+            tests:
+                - not_null:
+                    severity: warn
+          - name: symptom_skin_rash
+            description: A rash is a change of the skin that affects its color, appearance, or texture.
+            tests:
+                - not_null:
+                    severity: warn
+          - name: symptom_allergy
+            description: Allergies, also known as allergic diseases, are various conditions caused by hypersensitivity of the immune system to typically harmless substances in the environment.
+            tests:
+                - not_null:
+                    severity: warn
+    - name: weekly_symptomes
+      description: >
+        Daily symptomes staging table. 
+      columns:
+          - name: country_region_code
+            description: country region code for covid infected
+            tests:
+                - unique:
+                    severity: warn
+                - not_null:
+                    severity: warn
+          - name: country_region
+            description: country region by region code for covid infected
+            tests:
+                - unique:
+                    severity: warn
+                - not_null:
+                    severity: warn
+          - name: symptom_infection
+            description: An infection is the invasion of tissues by pathogens, their multiplication, and the reaction of host tissues to the infectious agent and the toxins they produce.
+            tests:
+                - not_null:
+                    severity: warn
+          - name: symptom_itch
+            description: (also known as pruritus) is a sensation that causes a strong desire or reflex to scratch.
+            tests:
+                - not_null:
+                    severity: warn
+          - name: symptom_pain
+            description: Pain is a distressing feeling often caused by intense or damaging stimuli.
+            tests:
+                - not_null:
+                    severity: warn
+          - name: symptom_skin_rash
+            description: A rash is a change of the skin that affects its color, appearance, or texture.
+            tests:
+                - not_null:
+                    severity: warn
+          - name: symptom_allergy
+            description: Allergies, also known as allergic diseases, are various conditions caused by hypersensitivity of the immune system to typically harmless substances in the environment.
+            tests:
+                - not_null:
+                    severity: warn
